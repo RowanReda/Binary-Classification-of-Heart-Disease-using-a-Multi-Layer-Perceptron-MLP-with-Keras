@@ -1,27 +1,28 @@
-# Heart Disease Prediction Model
+# Neural Network for Iris Classification
 
 ## Objective
-The objective of this project is to build a neural network model using PyTorch to predict heart disease based on various health indicators. The project involves preprocessing the dataset, training the model, and evaluating its performance using metrics like accuracy, confusion matrix, classification report, and ROC-AUC curves.
+
+The objective of this project is to build a neural network for multiclass classification on the famous **Iris dataset** using PyTorch. The network will predict the species of Iris flowers based on four features: sepal length, sepal width, petal length, and petal width. The classification results are evaluated using metrics like accuracy, confusion matrix, and ROC-AUC curves.
 
 ## Dataset Description
-The dataset used for this project is named **`heart_disease_health_indicators.csv`**. It contains health-related indicators that are associated with heart disease. The dataset includes the following columns:
 
-- **HighBP**: Indicator for high blood pressure.
-- **BMI**: Body Mass Index.
-- **Smoker**: Whether the person is a smoker.
-- **Diabetes**: Whether the person has diabetes.
-- **...and other health indicators...**
+The dataset used is the Iris dataset, which contains 150 instances of Iris flowers, each belonging to one of three species: Setosa, Versicolor, or Virginica. The dataset consists of:
+- 4 features:
+  - `SepalLengthCm`
+  - `SepalWidthCm`
+  - `PetalLengthCm`
+  - `PetalWidthCm`
+- 1 target (class): 
+  - `Species` (3 unique classes: Setosa, Versicolor, Virginica)
 
-The target variable is `HeartDiseaseorAttack`, where:
-- `0` indicates no heart disease or attack.
-- `1` indicates heart disease or an attack.
+The CSV file should be placed at the path specified in the code (`C:\Users\Rabab\Downloads\iris.csv`).
 
 ## Steps to Run the Code in Colab
 1. Open [Google Colab](https://colab.research.google.com/).
 2. Click on **File** > **Upload notebook** to upload your `.ipynb` file.
 3. Install the required libraries by running !pip install torch torchvision pandas sklearn matplotlib in a new cell.
-4. Upload the Housing-1.csv file to Colab.
-5. Ensure the `Housing-1.csv` dataset is uploaded to the same directory as your notebook.
+4. Upload the iris.csv file to Colab.
+5. Ensure the `iris.csv` dataset is uploaded to the same directory as your notebook.
 6. Execute each cell sequentially to preprocess the dataset, train the model, and evaluate its performance.
 
 ## Dependencies
@@ -32,5 +33,27 @@ Ensure that Python (preferably version 3.8 or higher) is installed in your envir
 -pip install scikit-learn
 -pip install matplotlib seaborn
 
+## Steps in the Code
+Load the Dataset: The dataset is loaded from a CSV file and the class distribution is displayed.
+
+### Data Preprocessing:
+
+- The feature values are normalized using StandardScaler.
+- The class labels are encoded into numerical values.
+- Train-Test Split: The dataset is split into training (80%) and test (20%) sets.
+
+### Neural Network Architecture:
+The neural network consists of 3 fully connected (dense) layers and an output layer with softmax activation for multiclass classification.
+**Neural Network Performance**: 
+   The neural network successfully classified the Iris flower species with high accuracy. The architecture, which included three fully connected layers and ReLU activations, proved effective in learning patterns from the dataset.
+
+### Training: 
+The model is trained for 100 epochs using Adam optimizer with L2 regularization (weight decay). A mini-batch size of 16 is used during training.
+
+### Evaluation:
+The model is evaluated on the test set for accuracy.
+Confusion matrix and classification report are generated.
+ROC-AUC curves for each class are plotted to visualize the model's performance.
+
 ## Conclusion
-This project builds a neural network model to classify individuals with or without heart disease using PyTorch. The model’s performance is evaluated using accuracy, confusion matrix, classification report, and ROC-AUC curves for multi-class classification.
+ the neural network approach provided an accurate and efficient solution for the Iris classification problem, showing promise for similar multiclass classification tasks.
